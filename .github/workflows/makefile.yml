@@ -21,9 +21,8 @@ jobs:
       - name: Add remote
         env:
           HF: ${{secreats.HUGGINGFACE_CICD}}
-          run: git remote add space <<repo>>
+          run: git remote add space git clone https://huggingface.co/spaces/aneesh-cherian-k/demo
       - name: Push to hub
         env:
           HF: ${{secreats.HUGGINGFACE_CICD}}
-          run: git push --force <<repo>> main
-  
+          run: git push --force git clone https://huggingface.co/spaces/aneesh-cherian-k/demo main
