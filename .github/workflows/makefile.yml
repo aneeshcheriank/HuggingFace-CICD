@@ -15,14 +15,16 @@ jobs:
   sync-to-hub: 
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          
       - name: Add remote
         env:
-          HUGGINGFACE_CICD: ${{secreats.HUGGINGFACE_CICD}}
-          run: git remote add space git clone https://huggingface.co/spaces/aneesh-cherian-k/demo
+          HUGGINGFACE_CICD: ${{ secrets.HUGGINGFACE_CICD }}
+        run: git remote add space https://huggingface.co/spaces/aneesh-cherian-k/demo
+        
       - name: Push to hub
         env:
-          HUGGINGFACE_CICD: ${{secreats.HUGGINGFACE_CICD}}
-          run: git push --force git clone https://huggingface.co/spaces/aneesh-cherian-k/demo main
+          HUGGINGFACE_CICD: ${{ secrets.HUGGINGFACE_CICD }}
+        run: git push --force space main
