@@ -27,4 +27,4 @@ jobs:
       - name: Push to hub
         env:
           HUGGINGFACE_CICD: ${{ secrets.HUGGINGFACE_CICD }}
-        run: git push --force space main
+        run: git push --force space master
