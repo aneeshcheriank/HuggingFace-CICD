@@ -21,10 +21,12 @@ jobs:
           
       - name: Add remote
         env:
-          HUGGINGFACE_CICD: ${{ secrets.HUGGINGFACE_CICD }}
+          YOUR_TOKEN: ${{secrets.HUGGINGFACE_CICD}}
         run: git remote add space https://huggingface.co/spaces/aneesh-cherian-k/demo
         
       - name: Push to hub
         env:
-          HUGGINGFACE_CICD: ${{ secrets.HUGGINGFACE_CICD }}
+          YOUR_TOKEN: ${{secrets.HUGGINGFACE_CICD}}
         run: git push --force space master
+
+
