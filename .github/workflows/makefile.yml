@@ -6,8 +6,6 @@ on:
   # triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
 
   # allows to run the workflow manually from the action tab
   workflow_dispatch:
@@ -22,10 +20,10 @@ jobs:
           fetch-depth: 0
       - name: Add remote
         env:
-          HF: ${{secreats.HF}}
-          run: git remote add space <<space>>
+          HF: ${{secreats.HUGGINGFACE_CICD}}
+          run: git remote add space <<repo>>
       - name: Push to hub
         env:
-          HF: {{secreats.HF}}
-          run: git push --force https://noahift:$HF@hugginfface.co/space/noahgift/demo main
+          HF: ${{secreats.HUGGINGFACE_CICD}}
+          run: git push --force <<repo>> main
   
