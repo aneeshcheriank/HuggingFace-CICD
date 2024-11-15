@@ -3,9 +3,9 @@ name: CI
 
 # When the workflow runs
 on:
-  # triggers the workflow on push or pull request events but only for the master branch
+  # triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
   # allows to run the workflow manually from the action tab
   workflow_dispatch:
@@ -27,4 +27,4 @@ jobs:
       - name: Push to hub
         env:
           YOUR_TOKEN: ${{secrets.HUGGINGFACE_CICD}}
-        run: git push --force https://aneesh-cherian-k:${YOUR_TOKEN}@huggingface.co/spaces/aneesh-cherian-k/demo master
+        run: git push --force https://aneesh-cherian-k:${YOUR_TOKEN}@huggingface.co/spaces/aneesh-cherian-k/demo main
