@@ -1,3 +1,4 @@
+[![CI](https://github.com/aneeshcheriank/HuggingFace-CICD/actions/workflows/makefile.yml/badge.svg)](https://github.com/aneeshcheriank/HuggingFace-CICD/actions/workflows/makefile.yml)
 ---
 title: My Demo Space
 emoji: 🚀
