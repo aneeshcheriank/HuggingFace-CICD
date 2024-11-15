@@ -27,6 +27,6 @@ jobs:
       - name: Push to hub
         env:
           YOUR_TOKEN: ${{secrets.HUGGINGFACE_CICD}}
-        run: git push --force space master
+        run: git push --force https://${YOUR_TOKEN}@huggingface.co/spaces/aneesh-cherian-k/demo master
 
 
