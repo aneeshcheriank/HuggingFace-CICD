@@ -1,0 +1,30 @@
+# Basic workflow for GitHub actions
+name: CI
+
+# When the workflow runs
+on:
+  # triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ "master" ]
+
+  # allows to run the workflow manually from the action tab
+  workflow_dispatch:
+
+# A workflow is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  sync-to-hub: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          
+      - name: Add remote
+        env:
+          YOUR_TOKEN: ${{secrets.HUGGINGFACE_CICD}}
+        run: git remote add space https://aneesh-cherian-k:${YOUR_TOKEN}@huggingface.co/spaces/aneesh-cherian-k/demo
+        
+      - name: Push to hub
+        env:
+          YOUR_TOKEN: ${{secrets.HUGGINGFACE_CICD}}
+        run: git push --force https://aneesh-cherian-k:${YOUR_TOKEN}@huggingface.co/spaces/aneesh-cherian-k/demo master
